@@ -1,3 +1,3 @@
 # Game_Review_Generator
-Sungjin An
+Sungjin An /n
 Software, SKKU
