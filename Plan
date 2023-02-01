@@ -1,0 +1,16 @@
+1. How to get Games review?
+  To collect games review, I using Steam that video game digital distribution service.
+  - Using api that steam offer
+  - ex) https://store.steampowered.com/appreviews/GAMEID?json=1&cursor=CURSORl=english
+     or Get store.steampowered.com/appreviews/GAMEID?json=1&cursor=CURSOR&l=english
+  - GameID: Unique ID for each game that Steam attached
+  - CURSOR: A pointer that where the API should return the value
+
+2. Which games should I choose?
+  - By category(Arcade, Rhythm, JRPG, Platformer, etc)
+  
+3. How many games should I choose?
+  - About 3~5 games or more?
+
+4. Which model should I use for generation?
+  - GPT, VAE, ...
