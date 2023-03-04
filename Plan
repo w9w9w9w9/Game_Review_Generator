@@ -14,3 +14,6 @@
 
 4. Which model should I use for generation?
   - GPT, VAE, ...
+
+5. Text preprocessing
+  - Sentence Tokenization, Word Tokenization, Cleaning, Normalization, Stopword...
