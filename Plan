@@ -17,3 +17,6 @@
 
 5. Text preprocessing
   - Sentence Tokenization, Word Tokenization, Cleaning, Normalization, Stopword...
+
+6. Word embedding
+  - FastText, Glove ELMo ..
