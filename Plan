@@ -13,10 +13,23 @@
   - About 3~5 games or more?
 
 4. Which model should I use for generation?
-  - GPT, VAE, ...
+  - pre-trained model or new model
 
 5. Text preprocessing
   - Sentence Tokenization, Word Tokenization, Cleaning, Normalization, Stopword...
 
 6. Word embedding
   - FastText, Glove ELMo ..
+
+-----------------------
+review에서 너무 긴 단어는 도배리뷰일 가능성이 높음, Monster Hunter: World의 영어 리뷰를 분석한 결과 
+- 리뷰의 문장당 평균 길이는 20단어 정도이다. 
+- 모든 문장에서 100단어가 넘어가는 문장의 수는 1630 / 59027 이였다.
+- 각 리뷰당 문장의 수는 약 5문장 정도이다. 
+
+
+카테고리별 게임
+Rouge-like: DEAD CELLS or HADES
+Horror: outlast
+Racing: Forza Horizon 5
+Rhythm: A Dnace of Fire and Ice

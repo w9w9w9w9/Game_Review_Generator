@@ -7,12 +7,20 @@ from nltk.tokenize import word_tokenize, sent_tokenize
 
 def sentence_preprocessing(s):
     pre = []
+    global cnt
+    global large
+    global word_cnt
+    global large_s
     sent_s = sent_tokenize(s)
     for i in sent_s:
         tmp_s = re.sub(r"[^a-z0-9]+", " ", i.lower())
         tmp_w = word_tokenize(tmp_s)
+        if len(tmp_w) > 100:
+            large = large+1
         if len(tmp_w) > 3:
             pre.append(tmp_w)
+            cnt = cnt+1
+            word_cnt = word_cnt+len(tmp_w)
     return pre
 
 
@@ -32,7 +40,7 @@ def get_review(gameID, cursor, reviews):
                 for i in range(0, total_reviews):
                     s = res_json['reviews'][i]['review'].replace('\n', '')
                     s = sentence_preprocessing(s)
-                    if len(s) > 3:
+                    if len(s) > 0:
                         reviews.append(s)
                 return
         
@@ -40,14 +48,14 @@ def get_review(gameID, cursor, reviews):
             for i in range(0, num_reviews):
                 s = res_json['reviews'][i]['review'].replace('\n', '')
                 s = sentence_preprocessing(s)
-                if len(s) > 3:
+                if len(s) > 0:
                     reviews.append(s)
             return
         else: #repeat
             for i in range(0, num_reviews):
                 s = res_json['reviews'][i]['review'].replace('\n', '')
                 s = sentence_preprocessing(s)
-                if len(s) > 3:
+                if len(s) > 0:
                     reviews.append(s)
             get_review(gameID, new_cursor, reviews) 
 
@@ -62,8 +70,17 @@ def get_review(gameID, cursor, reviews):
 #    get_review(i, '*', tmp)
 #    reviews.append(tmp)
 reviews = []
-get_review("1721470", '*', reviews)
-print(reviews[:10])
+global large
+global cnt
+global word_cnt
+large = 0
+cnt = 0
+word_cnt = 0
+get_review("582010", '*', reviews)
+print("sentences: ", len(reviews))
+print(large)
+print(word_cnt/cnt)
+print(reviews[:3])
 with open('test.pkl', 'wb') as file:
     pickle.dump(reviews, file)
 
